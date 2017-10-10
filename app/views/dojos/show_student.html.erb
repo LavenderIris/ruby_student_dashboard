@@ -1,0 +1,45 @@
+<style type="text/css">
+	table, th, tr, th, td {
+		border: 1px solid black;
+		padding: 0px 5px;
+	}
+	form {
+		display: inline-block;
+	}
+	.margin{
+		margin-right: 20%;
+	}
+</style>
+
+
+<h1><%= @student.dojo.branch%> </h1>
+<h2><%= @student.first_name%> <%= @student.last_name %> </h2>
+<h2>Email: <%= @student.email %></h2>
+
+<h2>Cohort</h2>
+<table>
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+	</tr>
+
+	<% @classmates.each do |c| %>
+	<tr>
+
+		<td><%= c.first_name %></td>
+		<td><%= c.last_name %></td>
+		<td><%= c.email %></td>
+	</tr>
+	<% end %>
+
+
+
+
+</table>
+<a href="/dojos"> Home </a> |  
+<a href="/dojos/<%=@student.dojo_id%>/students/<%=@student.id%>/edit"> Edit </a>
+<span class="margin"></span>
+<a href="/dojos/<%= @student.dojo.id %>/students/new">Add Student</a>
+
+

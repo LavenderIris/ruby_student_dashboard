@@ -1,0 +1,23 @@
+
+<style type="text/css">
+	table, th, tr, th, td {
+		border: 1px solid black;
+	}
+</style>
+<h1>New Dojo</h1>
+<form action="/create" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    Branch: <input type="text" name="dojo[branch]"> <br>
+    Street: <input type="text" name="dojo[street]"> <br>
+    City: <input type="text" name="dojo[city]"> <br>
+    State: <input type="text" name="dojo[state]"> <br>
+    <input type='submit' value='Create'>
+</form>
+<br>
+
+<%= flash[:error] %>
+
+<a href="/dojos">Go Back </a>
+	
+
+

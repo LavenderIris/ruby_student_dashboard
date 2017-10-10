@@ -1,0 +1,51 @@
+<style type="text/css">
+	table, th, tr, th, td {
+		border: 1px solid black;
+		padding: 0px 5px;
+	}
+	form {
+		display: inline-block;
+	}
+	.margin{
+		margin-right: 20%;
+	}
+</style>
+
+
+<h1><%= @dojo.branch %></h1>
+<h3>Address: <%= @dojo.street %></h3>
+<h3>City <%= @dojo.street %> State: <%= @dojo.state %> </h3>
+
+<h2>Student Roster</h2>
+<table>
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>Actions</th>
+	</tr>
+	<% @dojo.students.each do |student| %>
+
+	<tr>
+		<td><%= student.first_name %></td>
+		<td><%= student.last_name %></td>
+		<td><%= student.email %></td>
+		<td>
+			<a href="/dojos/<%=student.dojo_id%>/students/<%=student.id%>">Show</a> | 
+			<a href="/dojos/<%=student.dojo_id%>/students/<%=student.id%>/edit">Edit</a> |
+			<%= link_to "Delete", "/dojos/#{student.dojo_id}/students/#{student.id}", data: { method: :delete, confirm: "Are you sure?" } %>
+	
+
+		</td>
+	<tr>
+
+	<% end %>
+
+
+</table>
+<a href="/dojos"> Home </a> |  
+<a href="/dojos/<%= @dojo.id %>/edit "> Edit </a>
+<span class="margin"></span>
+<a href="/dojos/<%= @dojo.id %>/students/new">Add Student</a>
+
+

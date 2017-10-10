@@ -1,0 +1,28 @@
+
+<style type="text/css">
+	table, th, tr, th, td {
+		border: 1px solid black;
+	}
+</style>
+<h1>New Student</h1>
+<form action="/create_student" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    First Name: <input type="text" name="student[first_name]"> <br>
+    Last Name: <input type="text" name="student[last_name]"> <br>
+    Email: <input type="text" name="student[email]"> <br>
+    Dojo:
+    <select name = "student[dojo_id]">
+    <% @dojos.each do |d| %>
+        <option value="<%=d.id%>"><%=d.branch%></option>
+        <% end %>
+    <select>
+    <input type='submit' value='Create'>
+</form>
+<br>
+
+
+
+<a href="/dojos">Go Back </a>
+	
+
+
